@@ -1,0 +1,11 @@
+{
+  "best_model": "rf",
+  "best_model_oof_r2": 0.8387481090526604,
+  "n_records": 200,
+  "n_descriptors": 47,
+  "n_internal_one_hot_columns": 34,
+  "n_model_input_columns": 81,
+  "doi_in_model_input": false,
+  "experimental_context_in_model_input": false,
+  "legacy_results_preserved_at": "results/analysis"
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "raw_source": "dataset.csv",
+  "record_id_format": "R%04d",
+  "targets": {
+    "Y1": {"source_column": "Overpotential(V)", "unit": "V"},
+    "Y2": {"source_column": "Cycling_performance", "unit": "cycles"}
+  },
+  "metadata_columns": [
+    "DOI",
+    "data_source",
+    "Compounds(M1-M2-N)",
+    "Original_Compounds"
+  ],
+  "experimental_context_columns": [
+    "Current_density(mA/g)",
+    "Limited_specific_capacity(mAh/g)",
+    "Current_density(mA/g).1",
+    "Limited_specific_capacity(mAh/g).1"
+  ],
+  "descriptor_columns": [
+    "Atomic_Weight_of_M1",
+    "Atomic_Weight_of_M2",
+    "Atomic_Weight_of_N",
+    "Covalent_Radius_of_M1",
+    "Covalent_Radius_of_M2",
+    "Covalent_Radius_of_N",
+    "VanDer_Waals_Radius_of_M1",
+    "VanDer_Waals_Radius_of_M2",
+    "VanDer_Waals_Radius_of_N",
+    "Atomic_Volume_of_M1",
+    "Atomic_Volume_of_M2",
+    "Atomic_Volume_of_N",
+    "Electron_Affinity_of_M1",
+    "Electron_Affinity_of_M2",
+    "Electron_Affinity_of_N",
+    "d-electron_number_of_M1",
+    "d-electron_number_of_M2",
+    "p-electron_number_of_N",
+    "Difference_in_the_d-electron_number_of_M1_and_M2",
+    "Average_d-electron_number_of_M1_and_M2",
+    "Number_of_valence_electrons_of_M1",
+    "Number_of_valence_electrons_of_M2",
+    "Number_of_valence_electrons_of_N",
+    "Difference_in_the_valence-electron_number_of_M1_and_M2",
+    "Average_valence-electron_number_of_M1_and_M2",
+    "First_ionization_energy_of_M1",
+    "First_ionization_energy_of_M2",
+    "First_ionization_energy_of_N",
+    "Difference_in_the_First_ionization_energy_of_metals",
+    "Electrical_Conductivity_of_M1",
+    "Electrical_Conductivity_of_M2",
+    "Thermal_Conductivity_of_M1",
+    "Thermal_Conductivity_of_M2",
+    "Pauling_electronegativity_of_M1",
+    "Pauling_electronegativity_of_M2",
+    "Pauling_electronegativity_of_N",
+    "Difference_in_the_electronegativity_of_M1_and_M2",
+    "Average_electronegativity_of_M1_and_M2",
+    "Average_electronegativity_of_M1_and_N",
+    "Average_electronegativity_of_M2_and_N",
+    "Average_electronegativity_of_active_site_(M1-M2-N)",
+    "Correction_of_d_electron_number_of_M1_with_electronegativity_of_M2",
+    "Correction_of_d_electron_number_of_M1_with_electronegativity_of_N",
+    "Correction_of_d_electron_number_of_M1_with_average_Electronegativity_of_M2_and_N",
+    "Correction_of_d_electron_number_of_M1_with_sum_atomic_radius_of_M1_and_M2",
+    "d-band_center_of_M1",
+    "d-band_center_of_M2"
+  ],
+  "preprocessing": {
+    "numeric_conversion": "pandas.to_numeric(errors='coerce')",
+    "missing_value_tokens": ["none", "empty", "non-numeric"],
+    "missing_value_fill": 0.0,
+    "normalization": "StandardScaler only inside ElasticNet, Lasso, Ridge and SVR pipelines",
+    "internal_encoding": "separate one-hot columns for M1 and M2; fitted vocabulary documented in model_input_matrix.csv"
+  },
+  "model_selection": {
+    "models": ["elasticnet", "extratrees", "gradientboosting", "lasso", "rf", "ridge", "svm", "xgboost"],
+    "parameter_grids_and_estimators": "scripts/reproduce_ml.py: specifications()",
+    "scoring": "r2",
+    "refit": true
+  },
+  "cross_validation": {
+    "strategy": "deterministic shuffled group-aware 5-fold cross-validation",
+    "group_column": "data_source",
+    "n_splits": 5,
+    "random_seed": 42,
+    "assignment_labels": ["train", "test"]
+  }
+}

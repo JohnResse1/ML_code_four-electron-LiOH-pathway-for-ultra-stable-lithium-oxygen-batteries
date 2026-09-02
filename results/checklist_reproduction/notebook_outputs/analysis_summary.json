@@ -1,0 +1,6 @@
+{
+  "best_model": "rf",
+  "best_model_oof_r2": 0.8387481090526604,
+  "n_samples": 200,
+  "n_features": 81
+}
