@@ -104,4 +104,4 @@ Key packages:
 
 ## License
 
-This repository is provided for academic and research purposes.
+This project is licensed under the MIT License. See the LICENSE file for details.
