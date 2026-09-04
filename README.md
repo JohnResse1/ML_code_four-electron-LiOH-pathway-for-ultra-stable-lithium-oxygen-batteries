@@ -1,4 +1,4 @@
-# Machine Learning-Driven Regulation of the Four-Electron LiOH Pathway for Ultra-Stable Lithium–Oxygen Batteries
+# Machine learning-driven regulation of the four-electron LiOH pathway for lithium–oxygen batteries with prolonged stability
 
 This repository contains the machine-learning dataset, source-level provenance,
 deterministic cross-validation assignments, analysis code and preserved outputs
