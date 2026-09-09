@@ -1,6 +1,6 @@
 {
   "best_model": "xgboost",
-  "best_model_oof_r2": 0.8840894360975063,
+  "best_model_oof_r2": 0.884611455789141,
   "n_samples": 200,
   "n_features": 85
 }
