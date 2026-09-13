@@ -1,9 +1,7 @@
 # Machine-learning analysis for the Li–O₂ battery catalyst dataset
 
 This directory contains the analysis code and data used for the machine-learning
-results reported in the manuscript *Machine learning-driven regulation of the
-four-electron LiOH pathway for lithium–oxygen batteries with prolonged
-stability*.
+results reported in the manuscript *Machine learning-driven regulation of the four-electron LiOH pathway in lithium–oxygen batteries with prolonged cycling*.
 
 ## Contents
 
